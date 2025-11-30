@@ -1,0 +1,1 @@
+# zmk-behavior-auto-capsword
