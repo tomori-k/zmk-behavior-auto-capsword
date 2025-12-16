@@ -1,0 +1,35 @@
+menu "ZMK Auto Caps Word"
+
+config ZMK_BEHAVIOR_AUTO_CAPSWORD
+    bool "Enable automatic Caps Word activation"
+    default y
+    depends on ZMK_CAPS_WORD
+    help
+      Automatically enable Caps Word after detecting consecutive uppercase
+      letter keypresses.
+
+config ZMK_BEHAVIOR_AUTO_CAPSWORD_WINDOW_MS
+    int "Time window for uppercase detection"
+    default 1500
+    depends on ZMK_BEHAVIOR_AUTO_CAPSWORD
+    help
+      Maximum time in milliseconds allowed between uppercase presses for the
+      sequence to count toward auto activation.
+
+config ZMK_BEHAVIOR_AUTO_CAPSWORD_THRESHOLD
+    int "Uppercase presses required"
+    default 2
+    depends on ZMK_BEHAVIOR_AUTO_CAPSWORD
+    help
+      Number of consecutive uppercase keypresses required to enable Caps Word.
+
+config ZMK_BEHAVIOR_AUTO_CAPSWORD_LOG_LEVEL
+    int "Log level for auto caps word"
+    default 3
+    range 0 4
+    depends on LOG
+    help
+      Set the log level for the auto caps word module. Uses standard Zephyr
+      log levels (0=off, 1=err, 2=warn, 3=info, 4=dbug).
+
+endmenu
