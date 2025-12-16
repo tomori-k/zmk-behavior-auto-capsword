@@ -1,0 +1,4 @@
+name: zmk-behavior-auto-capsword
+build:
+  cmake: .
+  kconfig: Kconfig
