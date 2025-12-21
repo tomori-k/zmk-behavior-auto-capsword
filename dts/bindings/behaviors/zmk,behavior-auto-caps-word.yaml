@@ -1,0 +1,19 @@
+# Copyright (c) 2021 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+description: Auto caps word behavior
+
+compatible: "zmk,behavior-auto-caps-word"
+
+include: zero_param.yaml
+
+properties:
+  continue-list:
+    type: array
+    required: true
+  mods:
+    type: int
+  auto-activate-upper-count:
+    type: int
+    description: Number of consecutive uppercase alphabetic presses to auto-activate caps word
+    default: 0
