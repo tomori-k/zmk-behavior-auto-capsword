@@ -5,11 +5,20 @@ ZMK 用の Auto Caps Word behavior モジュール。
 ## 使い方
 
 1. west manifest にこのリポジトリを追加する
-2. keymap か overlay で `#include <behaviors/auto_caps_word.dtsi>` を追加する
-3. keymap で `&auto_caps_word` を使う
+2. behavior に次のノードを定義する
 
-## 提供ファイル
+    ```dts
+    / {
+        behaviors {
+            auto_caps_word: auto_caps_word {
+                compatible = "zmk,behavior-auto-caps-word";
+                #binding-cells = <0>;
+                continue-list = <UNDERSCORE BACKSPACE DELETE>;
+                display-name = "Auto Caps Word";
+                auto-activate-upper-count = <2>;
+            };
+        };
+    };
+    ```
 
-- `src/behavior_auto_caps_word.c`
-- `dts/bindings/behaviors/zmk,behavior-auto-caps-word.yaml`
-- `dts/behaviors/auto_caps_word.dtsi`
+    - 日本語配列の場合は `UNDERSCORE` の代わりに `INT1` を continue-list に設定する
